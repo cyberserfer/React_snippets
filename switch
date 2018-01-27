@@ -1,0 +1,65 @@
+# Switch 
+
+Swtich for number evaluation
+```
+gitComment(number){    
+    switch(true){
+      case (number === null):
+        return <div></div>;
+      case (number < 20):
+        return <div className="text-alert">"Needs Work!"</div>;
+      case (number > 20 && number < 50):
+        return <div className="text-warning">"A decent start!"</div>;
+      case (number > 50 && number < 100):
+        return <div className="text-secondary">"Doing Well!"</div>;
+      case (number > 100 && number < 200):
+        return <div className="text-success">"Great Job!"</div>;
+      case (number >= 200) :
+        return <div className="text-info">"Github Elite!"</div>;
+      default:
+        return null;
+    }
+  }
+  ```
+  
+  Switch to render specific footer
+  ```
+  const Footer = props => {
+    const { onClick, timer } = props;
+    switch (props.boardstate) {
+        case 'uninitialized':
+            return (
+                <button style={infoboxbutton.style} onClick={onClick}>
+                    Start Game
+                </button>
+            );
+        case 'unrevealed':
+            return (
+                <div style={infobox.style}>
+                    Get ready to memorize in <button onClick={onClick}>Next</button>
+                </div>
+            );
+        case 'memorize':
+            return (
+                <div style={infobox.style}>
+                    <button onClick={onClick}>Next</button>
+                </div>
+            );
+        case 'guess':
+            return (
+                <div style={infobox.style}>
+                    Guess the correct cells <button onClick={onClick}>Next</button>
+                </div>
+            );
+        case 'check':
+            return (
+                <div onClick={onClick} style={infoboxbutton.style}>
+                    Play again?
+                </div>
+            );
+        default:
+            throw new Error('Something happened - value = ' + props.boardstate);
+    }
+};
+```
+  
