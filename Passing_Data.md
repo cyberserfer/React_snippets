@@ -10,7 +10,7 @@ render() {
   );
 }
 ```
-***which will envoke****
+***which will envoke***
 ```
 const PlusButton = ({count, increaseCount}) => {
   return(
